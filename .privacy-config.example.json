@@ -1,0 +1,84 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "description": "Privacy and Sensitive Information Detection Configuration (Template)",
+  "settings": {
+    "block_commit": true,
+    "case_sensitive_keywords": false,
+    "mask_sensitive_output": false
+  },
+  "custom_keywords": [],
+  "custom_patterns": [],
+  "built_in_rules": {
+    "windows_absolute_path": {
+      "enabled": true,
+      "name": "Windows 本机绝对路径",
+      "regex": "(?i)(?:\\b[a-z]:\\\\[^\\s\"'<>`]+|\\b[a-z]:/[^\\s\"'<>`]+)"
+    },
+    "unix_user_path": {
+      "enabled": true,
+      "name": "Unix/macOS 用户绝对路径",
+      "regex": "(?:/Users/|/home/)[a-zA-Z0-9._-]+/[^\\s\"'<>`]+"
+    },
+    "unc_network_path": {
+      "enabled": true,
+      "name": "UNC 网络绝对路径",
+      "regex": "\\\\\\[a-zA-Z0-9._-]+\\[^\\s\"'<>`]+"
+    },
+    "private_key": {
+      "enabled": true,
+      "name": "私钥证书 (Private Key)",
+      "regex": "-----BEGIN (?:[A-Z0-9_-]+ )?PRIVATE KEY-----"
+    },
+    "api_token_openai": {
+      "enabled": true,
+      "name": "OpenAI / 类 OpenAI API Key",
+      "regex": "\\bsk-[a-zA-Z0-9_-]{20,}\\b"
+    },
+    "api_token_github": {
+      "enabled": true,
+      "name": "GitHub Token",
+      "regex": "\\bgh[pousr]_[A-Za-z0-9_]{36,}\\b"
+    },
+    "api_token_aws": {
+      "enabled": true,
+      "name": "AWS Access Key",
+      "regex": "\\b(AKIA|ABIA|ACCA|ASIA)[0-9A-Z]{16}\\b"
+    },
+    "jwt_token": {
+      "enabled": true,
+      "name": "JSON Web Token (JWT)",
+      "regex": "\\beyJ[a-zA-Z0-9_-]{10,}\\.eyJ[a-zA-Z0-9_-]{10,}\\.[a-zA-Z0-9_-]{10,}\\b"
+    },
+    "generic_secret_assignment": {
+      "enabled": true,
+      "name": "通用密码/密钥明文赋值",
+      "regex": "(?i)(?:password|passwd|secret_key|api_key|access_token|auth_token|client_secret)\\s*[:=]\\s*['\"][^'\"\\s]{8,}['\"]"
+    }
+  },
+  "allowlist_files": [
+    ".privacy-config.example.json",
+    "scripts/check_privacy.py",
+    "scripts/setup-hooks.ps1",
+    "scripts/setup-hooks.sh",
+    ".githooks/*",
+    ".git/*",
+    "AGENTS.md",
+    "GEMINI.md",
+    "CLAUDE.md",
+    ".cursorrules",
+    ".github/*"
+  ],
+  "allowlist_patterns": [
+    "(?i)example\\.com",
+    "(?i)/path/to/",
+    "(?i)c:[\\\\/]+path[\\\\/]+to",
+    "(?i)https?://[a-zA-Z0-9.-]+",
+    "(?i)C:[\\\\/]+Windows[\\\\/]+System32",
+    "(?i)C:[\\\\/]+tmp",
+    "(?i)your[-_]?token[-_]?here",
+    "(?i)<your[-_]token>",
+    "(?i)\\$\\{[A-Z0-9_]+\\}",
+    "(?i)dummy[-_]key",
+    "(?i)placeholder"
+  ]
+}

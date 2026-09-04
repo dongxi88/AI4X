@@ -1,0 +1,8 @@
+# Cursor Rules - Privacy & Security
+
+- Strictly prohibit hardcoding local machine absolute paths (e.g. C:\..., D:\..., /Users/..., /home/...). Always use relative paths or environment variables.
+- Strictly prohibit hardcoding employee IDs (e.g. h\d{8}), personal names, company names, accounts, passwords, or API tokens in any files.
+- The repository enforces Git pre-commit and pre-push hooks using `.githooks/`.
+- Never suggest or execute `git commit --no-verify` or `git push --no-verify`.
+- Never automatically execute `git commit` or `git push` without explicit user permission.
+- Use Python at `D:\ProgramData\miniforge3\python.exe` (or `python`).

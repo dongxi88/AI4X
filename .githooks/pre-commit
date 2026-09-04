@@ -1,0 +1,28 @@
+#!/bin/sh
+# Git pre-commit hook: Block privacy and sensitive information leaks
+
+if [ -f "D:/ProgramData/miniforge3/python.exe" ]; then
+    PYTHON_BIN="D:/ProgramData/miniforge3/python.exe"
+elif python --version >/dev/null 2>&1; then
+    PYTHON_BIN="python"
+elif py --version >/dev/null 2>&1; then
+    PYTHON_BIN="py"
+elif python3 --version >/dev/null 2>&1; then
+    PYTHON_BIN="python3"
+else
+    echo "[ERROR] Valid Python interpreter not found! Cannot run privacy check." >&2
+    exit 1
+fi
+
+"$PYTHON_BIN" scripts/check_privacy.py --staged
+STATUS=$?
+
+if [ $STATUS -ne 0 ]; then
+    echo "" >&2
+    echo "====================================================================" >&2
+    echo "[GIT HOOK BLOCKED] 提交已被终止：请清除上述敏感/隐私信息后重试！" >&2
+    echo "====================================================================" >&2
+    exit 1
+fi
+
+exit 0

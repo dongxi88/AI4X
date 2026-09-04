@@ -6,3 +6,11 @@ logs/
 Thumbs.db
 Desktop.ini
 .DS_Store
+
+# Local privacy configurations & sensitive keywords (DO NOT COMMIT)
+.privacy-config.json
+.privacy-config.local.json
+.env
+.env.*
+!.env.example
+
