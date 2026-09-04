@@ -2,22 +2,20 @@
 
 通过模拟按键（Pause 键）防止 Windows 自动息屏/睡眠/锁屏，支持静默后台运行与日志记录。
 
-## 一键启动方式
+## 启动方式
 
-- **`start-silent.bat`**：双击即可在后台静默运行（无窗口、无弹窗干扰，日志输出在当前目录 `logs/`）。
-- **`start.bat`**：启动菜单，支持选择后台运行、前台调试运行、以及一键停止后台进程。
-- **`stop.bat`**：双击一键停止后台运行的防锁屏进程。
+- **`start.bat`**（全功能启动器）：
+  - 双击运行后显示菜单并开启 **10 秒动态倒计时**。
+  - **倒计时数数**：在屏幕同一行实时显示 `[10s] -> [ 9s] -> ... -> [ 0s]`。
+  - **用户不选择**：倒计时 10 秒结束后**自动进入 [2] 前台调试运行**。
+  - **手动选择**（无需按回车，按键盘单键即触发）：
+    - 按 `1`：启动后台静默运行
+    - 按 `2`：启动前台调试运行
+    - 按 `3`：停止所有正在运行的防锁屏后台进程
+    - 按 `Q` 或 `Esc`：取消退出
 
-## 手动运行方式 (PowerShell)
+- **`start-silent.bat`**：
+  - 双击立即在后台静默运行（无窗口、无弹窗干扰，日志输出在同级 `logs/` 目录）。
 
-在当前目录下打开 PowerShell：
-
-1. **后台静默运行**：
-   ```powershell
-   Start-Process powershell -WindowStyle Hidden -ArgumentList "-ExecutionPolicy Bypass -File `"$PSScriptRoot\anti-lock-screen-v2.ps1`" -Silent"
-   ```
-
-2. **前台调试运行（带提示窗口与Toast通知）**：
-   ```powershell
-   powershell -ExecutionPolicy Bypass -File .\anti-lock-screen-v2.ps1
-   ```
+- **`stop.bat`**：
+  - 双击一键终止后台正在运行的所有防锁屏 PowerShell 进程。
