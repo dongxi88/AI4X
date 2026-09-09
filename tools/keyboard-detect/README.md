@@ -45,6 +45,12 @@ python detect_keyboard.py
 
 # 终端实时监听 Hub 切换测试模式
 python detect_keyboard.py -w
+
+# 【推荐】一键定向绑定当前唯一的 Hub 共享键盘（彻底杜绝蓝牙/无线鼠标接收器误触发）
+python detect_keyboard.py --bind
+
+# 解除定向绑定，恢复智能通用模式
+python detect_keyboard.py --unbind
 ```
 
 ---
