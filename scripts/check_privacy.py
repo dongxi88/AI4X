@@ -87,6 +87,36 @@ def load_config(repo_root: Path, explicit_path: str = None) -> dict:
     return config
 
 
+BINARY_EXTENSIONS = {
+    # Images
+    ".png", ".jpg", ".jpeg", ".gif", ".ico", ".webp", ".bmp", ".tiff", ".psd", ".svgz",
+    # Documents & Media
+    ".pdf", ".doc", ".docx", ".xls", ".xlsx", ".ppt", ".pptx",
+    ".mp3", ".mp4", ".wav", ".avi", ".mov", ".flac", ".mkv", ".webm",
+    # Archives & Compressed
+    ".zip", ".tar", ".gz", ".bz2", ".xz", ".7z", ".rar",
+    # Binaries & Libraries
+    ".exe", ".dll", ".so", ".dylib", ".bin", ".dat", ".o", ".a",
+    # Python bytecode
+    ".pyc", ".pyo", ".pyd",
+    # Fonts
+    ".woff", ".woff2", ".ttf", ".eot", ".otf"
+}
+
+
+def is_binary_file(file_path: Path) -> bool:
+    if file_path.suffix.lower() in BINARY_EXTENSIONS:
+        return True
+    try:
+        with open(file_path, "rb") as f:
+            chunk = f.read(4096)
+            if b"\x00" in chunk:
+                return True
+    except Exception:
+        pass
+    return False
+
+
 def is_file_allowlisted(file_path: str, allowlist_patterns: list) -> bool:
     normalized_path = file_path.replace("\\", "/").lstrip("./")
     for pat in allowlist_patterns:
@@ -205,7 +235,7 @@ def scan_diff_output(diff_text: str, rules: list, allowlist_files: list, allowli
                         "matched": base_name,
                         "context": "该文件包含您本地真实的敏感词与公司/工号规则，已被 .gitignore 忽略，绝不可提交到 Git 仓库！"
                     })
-                is_current_file_skipped = is_file_allowlisted(current_file, allowlist_files)
+                is_current_file_skipped = is_file_allowlisted(current_file, allowlist_files) or Path(current_file).suffix.lower() in BINARY_EXTENSIONS
             continue
 
         if is_current_file_skipped or not current_file:
@@ -254,6 +284,8 @@ def scan_file(file_path: Path, rules: list, allowlist_files: list, allowlist_reg
     abs_file = file_path.resolve()
     rel_path = os.path.relpath(str(abs_file), str(Path.cwd().resolve())).replace("\\", "/")
     if is_file_allowlisted(rel_path, allowlist_files):
+        return []
+    if is_binary_file(file_path):
         return []
     
     violations = []
