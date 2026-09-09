@@ -290,10 +290,10 @@ def generate_glow_bitmap_data(width, height, core_w, core_h, fade_x, fade_y, bas
     return bytes(pixels)
 
 class IndicatorApp:
-    def __init__(self, width_ratio=0.25, height=2, glow=12, fade_x=45, color=(0, 229, 255), primary_only=False, heartbeat_interval=300):
+    def __init__(self, width_ratio=0.125, height=1, glow=7, fade_x=30, color=(0, 229, 255), primary_only=False, heartbeat_interval=300):
         self.width_ratio = max(0.05, min(1.0, width_ratio))
         self.core_h = max(1, height)
-        self.glow_y = max(4, glow)
+        self.glow_y = max(3, glow)
         self.fade_x = max(10, fade_x)
         self.color = color  # (R, G, B)
         self.primary_only = primary_only
@@ -483,6 +483,7 @@ class IndicatorApp:
         # 3. 互斥体单实例检测
         self.mutex = kernel32.CreateMutexW(None, False, MUTEX_NAME)
         if kernel32.GetLastError() == 183:
+            log_debug("互斥体已存在 (Error 183)，已有实例在后台运行，本进程退出。")
             print("[提示] 键盘指示条已经在后台运行中，无需重复启动。")
             sys.exit(0)
 
@@ -585,10 +586,10 @@ def parse_color(hex_str):
 
 def main():
     parser = argparse.ArgumentParser(description="屏幕顶端发光指示条 (Bloom Edition)")
-    parser.add_argument("--width-ratio", type=float, default=0.25, help="宽度占屏幕比例，默认 0.25 (即 1/4 居中)")
-    parser.add_argument("--height", type=int, default=2, help="核心实线高度(像素)，默认 2px")
-    parser.add_argument("--glow", type=int, default=12, help="垂直泛光晕染深度(像素)，默认 12px")
-    parser.add_argument("--fade-x", type=int, default=45, help="左右两侧渐变收尾半径(像素)，默认 45px")
+    parser.add_argument("--width-ratio", type=float, default=0.125, help="宽度占屏幕比例，默认 0.125 (即 1/8 居中)")
+    parser.add_argument("--height", type=int, default=1, help="核心实线高度(像素)，默认 1px")
+    parser.add_argument("--glow", type=int, default=7, help="垂直泛光晕染深度(像素)，默认 7px")
+    parser.add_argument("--fade-x", type=int, default=30, help="左右两侧渐变收尾半径(像素)，默认 30px")
     parser.add_argument("--color", type=str, default="#00E5FF", help="光芒颜色十六进制，默认 #00E5FF (亮青色)")
     parser.add_argument("--primary-only", action="store_true", help="仅在主显示器显示，不传则在所有扩展屏幕上均显示")
     parser.add_argument("--interval", type=int, default=300, help="心跳同步间隔(毫秒)，默认 300ms")
@@ -602,6 +603,7 @@ def main():
 
     if args.daemon:
         stop_running_instance()
+        time.sleep(0.5)
         pythonw_path = os.path.join(os.path.dirname(sys.executable), "pythonw.exe")
         if not os.path.exists(pythonw_path):
             pythonw_path = "pythonw.exe"
@@ -617,10 +619,10 @@ def main():
             "--color", args.color,
             "--interval", str(args.interval)
         ]
-        if args.primary_only:
-            cmd.append("--primary-only")
-
-        subprocess.Popen(cmd)
+        creation_flags = 0
+        if sys.platform == "win32":
+            creation_flags = subprocess.DETACHED_PROCESS | subprocess.CREATE_NEW_PROCESS_GROUP
+        subprocess.Popen(cmd, creationflags=creation_flags, close_fds=True)
         print("============================================================")
         print("【方案 A：顶端发光条 (Bloom Edition) 已在后台启动】")
         print(f"宽度: {int(args.width_ratio * 100)}% 屏幕居中 | 核心高度: {args.height}px | 泛光高度: {args.glow}px")

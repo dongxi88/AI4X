@@ -1,5 +1,7 @@
 @echo off
 setlocal
+REM 0. Ensure previous instance is stopped
+call "%~dp0stop_indicator.bat" >nul 2>&1
 REM 1. Check pythonw.exe in PATH
 where pythonw.exe >nul 2>&1
 if %ERRORLEVEL% equ 0 (
