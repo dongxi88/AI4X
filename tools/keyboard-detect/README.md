@@ -20,22 +20,30 @@
 ## 🚀 快速使用
 
 ### 1. 一键后台启动
+
 双击运行项目目录下的 `start.bat`（或 `start_indicator.bat`）：
+
 ```bat
 start.bat
 ```
+
 - 无黑框命令行窗口，静默常驻后台运行。
 - 若键盘接入本机，屏幕顶部中央即刻泛起柔和青色光晕；切换走后即刻熄灭。
 
 ### 2. 一键停止
+
 双击运行 `stop.bat`（或 `stop_indicator.bat`）：
+
 ```bat
 stop.bat
 ```
+
 - 安全退出后台指示条进程并释放资源。
 
 ### 3. 命令行高级启动与调试
+
 可以通过 Python 传参自定义视觉样式：
+
 ```powershell
 # 自定义示例：宽度占 30%，高度 3px，泛光 15px，金黄色 (#FFB700)
 python top_indicator.py --width-ratio 0.3 --height 3 --glow 15 --color "#FFB700"
@@ -57,18 +65,19 @@ python detect_keyboard.py --unbind
 
 ## 📂 文件清单与导航
 
-| 文件 | 描述 |
-| :--- | :--- |
-| [`top_indicator.py`](./top_indicator.py) | **核心指示条程序**：Win32 32位 ARGB 分层窗口 + 硬件加速泛光合成 |
-| [`start_indicator.bat`](./start_indicator.bat) | **一键启动脚本**：静默拉起后台指示条 |
-| [`stop_indicator.bat`](./stop_indicator.bat) | **一键停止脚本**：安全关闭后台进程 |
-| [`detect_keyboard.py`](./detect_keyboard.py) | **连接检测核心库**：基于 Windows RawInput 过滤并识别打字键盘 |
-| [`PERFORMANCE.md`](./PERFORMANCE.md) | **系统资源消耗与性能基准测试报告** |
-| [`PROTOTYPES.md`](./PROTOTYPES.md) | 三套视觉设计方案与原型分析对比 |
-| [`assets/`](./assets/) | 原型设计图与发光效果预览图 |
-| [`runtime.log`](./runtime.log) | 硬件插拔与状态同步调试日志 |
+| 文件                                             | 描述                                         |
+|:---------------------------------------------- |:------------------------------------------ |
+| [`top_indicator.py`](./top_indicator.py)       | **核心指示条程序**：Win32 32位 ARGB 分层窗口 + 硬件加速泛光合成 |
+| [`start_indicator.bat`](./start_indicator.bat) | **一键启动脚本**：静默拉起后台指示条                       |
+| [`stop_indicator.bat`](./stop_indicator.bat)   | **一键停止脚本**：安全关闭后台进程                        |
+| [`detect_keyboard.py`](./detect_keyboard.py)   | **连接检测核心库**：基于 Windows RawInput 过滤并识别打字键盘  |
+| [`PERFORMANCE.md`](./PERFORMANCE.md)           | **系统资源消耗与性能基准测试报告**                        |
+| [`PROTOTYPES.md`](./PROTOTYPES.md)             | 三套视觉设计方案与原型分析对比                            |
+| [`assets/`](./assets/)                         | 原型设计图与发光效果预览图                              |
+| [`runtime.log`](./runtime.log)                 | 硬件插拔与状态同步调试日志                              |
 
 ---
 
 ## ⚙️ 开机自启设置
+
 按下 `Win + R` 输入 `shell:startup` 回车，将 `start_indicator.bat` 的快捷方式粘贴进该目录即可实现开机自动静默驻留。
