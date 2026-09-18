@@ -1,0 +1,21 @@
+{
+  "name": "codearts-proxy",
+  "version": "1.0.0",
+  "description": "OpenAI and Anthropic compatible local reverse proxy and protocol adapter for CodeArts agent-kernel models.",
+  "type": "module",
+  "main": "src/index.ts",
+  "scripts": {
+    "start": "node src/index.ts",
+    "dev": "node src/index.ts",
+    "test": "node --test test/*.test.ts"
+  },
+  "keywords": [
+    "codearts",
+    "openai-proxy",
+    "anthropic-proxy",
+    "reverse-proxy",
+    "ai-agent"
+  ],
+  "author": "",
+  "license": "MIT"
+}
