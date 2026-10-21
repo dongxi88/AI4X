@@ -307,6 +307,7 @@ class IndicatorApp:
         # 维护每个显示器的窗口句柄与 DIB 资源
         self.window_entries = []
         self.is_connected = None
+        self._recreating = False
         self.mutex = None
 
     def ensure_interactive_desktop(self):
@@ -342,7 +343,8 @@ class IndicatorApp:
             return 0
 
         elif msg == WM_DESTROY:
-            user32.PostQuitMessage(0)
+            if not self._recreating:
+                user32.PostQuitMessage(0)
             return 0
 
         return user32.DefWindowProcW(hwnd, msg, wparam, lparam)
@@ -379,13 +381,17 @@ class IndicatorApp:
 
     def create_indicator_windows(self):
         # 清理旧窗口及 GDI 资源
-        for entry in self.window_entries:
-            try:
-                user32.DestroyWindow(entry['hwnd'])
-                gdi32.DeleteObject(entry['hbm'])
-                gdi32.DeleteDC(entry['hdc_mem'])
-            except Exception:
-                pass
+        self._recreating = True
+        try:
+            for entry in self.window_entries:
+                try:
+                    user32.DestroyWindow(entry['hwnd'])
+                    gdi32.DeleteObject(entry['hbm'])
+                    gdi32.DeleteDC(entry['hdc_mem'])
+                except Exception:
+                    pass
+        finally:
+            self._recreating = False
         self.window_entries.clear()
 
         monitors = enumerate_monitors()
