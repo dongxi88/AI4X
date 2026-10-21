@@ -1,0 +1,258 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 900 620" width="900" height="620">
+  <title>面朝大海，春暖花开</title>
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#b7e2f5"/>
+      <stop offset="55%" stop-color="#dff2f9"/>
+      <stop offset="100%" stop-color="#ffeedd"/>
+    </linearGradient>
+    <linearGradient id="sea" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#8fd9ec"/>
+      <stop offset="45%" stop-color="#45a8cf"/>
+      <stop offset="100%" stop-color="#2a7fb8"/>
+    </linearGradient>
+    <linearGradient id="sand" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f9e8c5"/>
+      <stop offset="100%" stop-color="#eed9a8"/>
+    </linearGradient>
+    <linearGradient id="meadow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#a5d977"/>
+      <stop offset="100%" stop-color="#63a84e"/>
+    </linearGradient>
+    <radialGradient id="sunGlow" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#ffe9a8" stop-opacity="0.95"/>
+      <stop offset="60%" stop-color="#ffdf8e" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#ffdf8e" stop-opacity="0"/>
+    </radialGradient>
+
+    <!-- 雏菊 -->
+    <g id="daisy">
+      <line x1="0" y1="0" x2="0" y2="-14" stroke="#3e8e5a" stroke-width="2.5"/>
+      <path d="M0,-8 C-7,-11 -11,-16 -12,-21 C-5,-19 -1,-14 0,-8 Z" fill="#4aa05e"/>
+      <g fill="#ffffff">
+        <ellipse cx="0" cy="-33" rx="4.2" ry="9"/>
+        <ellipse cx="0" cy="-33" rx="4.2" ry="9" transform="rotate(60 0 -24)"/>
+        <ellipse cx="0" cy="-33" rx="4.2" ry="9" transform="rotate(120 0 -24)"/>
+        <ellipse cx="0" cy="-33" rx="4.2" ry="9" transform="rotate(180 0 -24)"/>
+        <ellipse cx="0" cy="-33" rx="4.2" ry="9" transform="rotate(240 0 -24)"/>
+        <ellipse cx="0" cy="-33" rx="4.2" ry="9" transform="rotate(300 0 -24)"/>
+      </g>
+      <circle cx="0" cy="-24" r="5" fill="#ffd166"/>
+    </g>
+
+    <!-- 郁金香（粉） -->
+    <g id="tulipP">
+      <line x1="0" y1="0" x2="0" y2="-22" stroke="#3e8e5a" stroke-width="2.5"/>
+      <path d="M0,-8 C-8,-12 -12,-19 -13,-25 C-6,-23 -2,-16 0,-8 Z" fill="#4aa05e"/>
+      <path d="M0,-6 C8,-11 12,-18 13,-24 C6,-22 2,-15 0,-6 Z" fill="#3e8e5a"/>
+      <path d="M-7,-22 C-9,-34 -5,-42 0,-42 C5,-42 9,-34 7,-22 C4,-18 -4,-18 -7,-22 Z" fill="#ff7fa5"/>
+      <path d="M-7,-22 C-3,-26 3,-26 7,-22" fill="none" stroke="#e2557a" stroke-width="1.5"/>
+    </g>
+
+    <!-- 郁金香（黄） -->
+    <g id="tulipY">
+      <line x1="0" y1="0" x2="0" y2="-22" stroke="#3e8e5a" stroke-width="2.5"/>
+      <path d="M0,-8 C-8,-12 -12,-19 -13,-25 C-6,-23 -2,-16 0,-8 Z" fill="#4aa05e"/>
+      <path d="M0,-6 C8,-11 12,-18 13,-24 C6,-22 2,-15 0,-6 Z" fill="#3e8e5a"/>
+      <path d="M-7,-22 C-9,-34 -5,-42 0,-42 C5,-42 9,-34 7,-22 C4,-18 -4,-18 -7,-22 Z" fill="#ffd166"/>
+      <path d="M-7,-22 C-3,-26 3,-26 7,-22" fill="none" stroke="#e8a93e" stroke-width="1.5"/>
+    </g>
+
+    <!-- 郁金香（红） -->
+    <g id="tulipR">
+      <line x1="0" y1="0" x2="0" y2="-22" stroke="#3e8e5a" stroke-width="2.5"/>
+      <path d="M0,-8 C-8,-12 -12,-19 -13,-25 C-6,-23 -2,-16 0,-8 Z" fill="#4aa05e"/>
+      <path d="M0,-6 C8,-11 12,-18 13,-24 C6,-22 2,-15 0,-6 Z" fill="#3e8e5a"/>
+      <path d="M-7,-22 C-9,-34 -5,-42 0,-42 C5,-42 9,-34 7,-22 C4,-18 -4,-18 -7,-22 Z" fill="#ff6b6b"/>
+      <path d="M-7,-22 C-3,-26 3,-26 7,-22" fill="none" stroke="#e04f4f" stroke-width="1.5"/>
+    </g>
+
+    <!-- 草丛 -->
+    <g id="grass" fill="none" stroke="#4c9a4f" stroke-width="2.5" stroke-linecap="round">
+      <path d="M0,0 C-2,-8 -7,-13 -10,-19"/>
+      <path d="M0,0 C0,-9 1,-15 2,-22"/>
+      <path d="M0,0 C3,-8 8,-12 11,-17"/>
+    </g>
+  </defs>
+
+  <!-- 天空 -->
+  <rect x="0" y="0" width="900" height="300" fill="url(#sky)"/>
+
+  <!-- 太阳 -->
+  <circle cx="710" cy="105" r="75" fill="url(#sunGlow)"/>
+  <g stroke="#ffd166" stroke-width="3" stroke-linecap="round" opacity="0.75">
+    <line x1="710" y1="57" x2="710" y2="43"/>
+    <line x1="710" y1="153" x2="710" y2="167"/>
+    <line x1="662" y1="105" x2="648" y2="105"/>
+    <line x1="758" y1="105" x2="772" y2="105"/>
+    <line x1="744" y1="71" x2="754" y2="61"/>
+    <line x1="676" y1="71" x2="666" y2="61"/>
+    <line x1="744" y1="139" x2="754" y2="149"/>
+    <line x1="676" y1="139" x2="666" y2="149"/>
+  </g>
+  <circle cx="710" cy="105" r="38" fill="#ffd166"/>
+  <circle cx="710" cy="105" r="30" fill="#ffe8a3"/>
+
+  <!-- 云 -->
+  <g fill="#ffffff" opacity="0.92">
+    <ellipse cx="170" cy="88" rx="42" ry="20"/>
+    <ellipse cx="208" cy="94" rx="34" ry="16"/>
+    <ellipse cx="136" cy="96" rx="30" ry="14"/>
+  </g>
+  <g fill="#ffffff" opacity="0.8">
+    <ellipse cx="430" cy="132" rx="34" ry="16"/>
+    <ellipse cx="460" cy="137" rx="26" ry="12"/>
+    <ellipse cx="402" cy="138" rx="24" ry="11"/>
+  </g>
+  <g fill="#ffffff" opacity="0.85">
+    <ellipse cx="598" cy="62" rx="30" ry="14"/>
+    <ellipse cx="624" cy="67" rx="22" ry="10"/>
+  </g>
+
+  <!-- 海鸥 -->
+  <g fill="none" stroke="#5a7d8c" stroke-width="2.5" stroke-linecap="round">
+    <path d="M140,130 Q148,122 156,130 Q164,122 172,130"/>
+    <path d="M205,108 Q212,101 219,108 Q226,101 233,108"/>
+    <path d="M262,140 Q268,134 274,140 Q280,134 286,140"/>
+  </g>
+
+  <!-- 大海 -->
+  <rect x="0" y="300" width="900" height="150" fill="url(#sea)"/>
+  <line x1="0" y1="300" x2="900" y2="300" stroke="#ffffff" stroke-width="1.5" opacity="0.45"/>
+
+  <!-- 日光倒影 -->
+  <g fill="#ffe9b0">
+    <ellipse cx="710" cy="315" rx="40" ry="3.5" opacity="0.45"/>
+    <ellipse cx="705" cy="335" rx="30" ry="3" opacity="0.35"/>
+    <ellipse cx="715" cy="358" rx="24" ry="2.6" opacity="0.3"/>
+    <ellipse cx="708" cy="382" rx="18" ry="2.2" opacity="0.25"/>
+    <ellipse cx="712" cy="408" rx="14" ry="2" opacity="0.2"/>
+    <ellipse cx="710" cy="430" rx="10" ry="1.8" opacity="0.18"/>
+  </g>
+
+  <!-- 波浪 -->
+  <g fill="none" stroke="#ffffff" stroke-linecap="round">
+    <path d="M0,322 Q45,314 90,322 T180,322 T270,322 T360,322 T450,322 T540,322 T630,322 T720,322 T810,322 T900,322" stroke-width="2.5" opacity="0.5"/>
+    <path d="M0,352 Q45,360 90,352 T180,352 T270,352 T360,352 T450,352 T540,352 T630,352 T720,352 T810,352 T900,352" stroke-width="2.5" opacity="0.4"/>
+    <path d="M0,384 Q45,377 90,384 T180,384 T270,384 T360,384 T450,384 T540,384 T630,384 T720,384 T810,384 T900,384" stroke-width="2.2" opacity="0.35"/>
+    <path d="M0,416 Q45,423 90,416 T180,416 T270,416 T360,416 T450,416 T540,416 T630,416 T720,416 T810,416 T900,416" stroke-width="2" opacity="0.3"/>
+    <path d="M0,442 Q45,436 90,442 T180,442 T270,442 T360,442 T450,442 T540,442 T630,442 T720,442 T810,442 T900,442" stroke-width="2" opacity="0.3"/>
+  </g>
+
+  <!-- 帆船 -->
+  <g>
+    <ellipse cx="330" cy="372" rx="26" ry="4" fill="#ffffff" opacity="0.25"/>
+    <path d="M330,306 L330,352" stroke="#6b4a32" stroke-width="3" stroke-linecap="round"/>
+    <path d="M330,308 L330,348 L303,348 Z" fill="#ffffff" stroke="#e3e9ec" stroke-width="1"/>
+    <path d="M334,312 L334,348 L359,348 Z" fill="#f4ede0" stroke="#ddd2bd" stroke-width="1"/>
+    <path d="M300,352 L360,352 L349,367 L311,367 Z" fill="#d95d39"/>
+  </g>
+
+  <!-- 沙滩 -->
+  <path d="M0,470 C150,448 320,462 470,456 C620,450 760,468 900,452 L900,505 C750,515 600,500 450,505 C300,510 150,498 0,505 Z" fill="url(#sand)"/>
+  <path d="M0,470 C150,448 320,462 470,456 C620,450 760,468 900,452" fill="none" stroke="#ffffff" stroke-width="6" stroke-linecap="round" opacity="0.8"/>
+
+  <!-- 草地 -->
+  <path d="M0,502 C150,495 300,512 450,506 C600,500 750,516 900,504 L900,620 L0,620 Z" fill="url(#meadow)"/>
+
+  <!-- 草地小花点 -->
+  <g>
+    <circle cx="110" cy="540" r="2.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="170" cy="575" r="2.5" fill="#ffd166" opacity="0.9"/>
+    <circle cx="240" cy="538" r="2.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="310" cy="572" r="2.5" fill="#ffb3c6" opacity="0.9"/>
+    <circle cx="370" cy="538" r="2.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="440" cy="570" r="2.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="505" cy="538" r="2.5" fill="#ffd166" opacity="0.9"/>
+    <circle cx="575" cy="568" r="2.5" fill="#ffffff" opacity="0.9"/>
+    <circle cx="795" cy="540" r="2.5" fill="#ffb3c6" opacity="0.9"/>
+    <circle cx="890" cy="545" r="2.5" fill="#ffffff" opacity="0.9"/>
+  </g>
+
+  <!-- 房子 -->
+  <g>
+    <ellipse cx="715" cy="512" rx="72" ry="8" fill="#2f5568" opacity="0.12"/>
+    <rect x="655" y="425" width="120" height="85" fill="#fff6e8" stroke="#e0d5c0" stroke-width="2"/>
+    <rect x="745" y="372" width="15" height="32" fill="#b5651d" stroke="#94511a" stroke-width="1.5"/>
+    <path d="M640,428 L715,378 L790,428 Z" fill="#e2795f" stroke="#c9664c" stroke-width="2"/>
+    <rect x="700" y="462" width="30" height="48" rx="3" fill="#8d5a3b" stroke="#744930" stroke-width="1.5"/>
+    <circle cx="724" cy="488" r="2" fill="#f2cc8f"/>
+    <g fill="#a8dadc" stroke="#457b9d" stroke-width="2">
+      <rect x="672" y="452" width="26" height="26" rx="2"/>
+      <rect x="732" y="452" width="26" height="26" rx="2"/>
+    </g>
+    <g stroke="#457b9d" stroke-width="1.5">
+      <line x1="685" y1="452" x2="685" y2="478"/>
+      <line x1="672" y1="465" x2="698" y2="465"/>
+      <line x1="745" y1="452" x2="745" y2="478"/>
+      <line x1="732" y1="465" x2="758" y2="465"/>
+    </g>
+  </g>
+  <!-- 炊烟 -->
+  <g fill="#ffffff">
+    <circle cx="752" cy="362" r="6" opacity="0.35"/>
+    <circle cx="757" cy="347" r="8" opacity="0.25"/>
+    <circle cx="763" cy="330" r="10" opacity="0.15"/>
+  </g>
+  <!-- 小路 -->
+  <path d="M706,510 C700,545 688,575 662,612 L762,612 C736,572 726,545 724,510 Z" fill="#ead9b0" opacity="0.9" stroke="#d9c48f" stroke-width="1.5"/>
+
+  <!-- 后排花草 -->
+  <use xlink:href="#daisy" href="#daisy" transform="translate(95,552) scale(0.85)"/>
+  <use xlink:href="#tulipP" href="#tulipP" transform="translate(155,558) scale(0.85)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(215,545) scale(0.8)"/>
+  <use xlink:href="#tulipY" href="#tulipY" transform="translate(285,556) scale(0.85)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(350,542) scale(0.8)"/>
+  <use xlink:href="#tulipR" href="#tulipR" transform="translate(415,556) scale(0.85)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(480,545) scale(0.8)"/>
+  <use xlink:href="#tulipP" href="#tulipP" transform="translate(545,556) scale(0.85)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(610,545) scale(0.8)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(810,560) scale(0.85)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(880,572) scale(0.9)"/>
+
+  <!-- 草丛 -->
+  <use xlink:href="#grass" href="#grass" transform="translate(60,560)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(120,600) scale(1.3)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(190,556) scale(0.9)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(250,602) scale(1.25)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(320,552) scale(0.95)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(390,600) scale(1.3)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(450,552) scale(0.9)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(515,600) scale(1.25)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(580,552) scale(0.9)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(630,598) scale(1.2)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(825,556) scale(0.9)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(895,600) scale(1.2)"/>
+  <use xlink:href="#grass" href="#grass" transform="translate(48,600) scale(1.2)"/>
+
+  <!-- 前排花草 -->
+  <use xlink:href="#daisy" href="#daisy" transform="translate(70,595) scale(1.2)"/>
+  <use xlink:href="#tulipP" href="#tulipP" transform="translate(135,602) scale(1.25)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(205,588) scale(1.1)"/>
+  <use xlink:href="#tulipY" href="#tulipY" transform="translate(270,604) scale(1.3)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(335,590) scale(1.1)"/>
+  <use xlink:href="#tulipR" href="#tulipR" transform="translate(400,604) scale(1.25)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(465,590) scale(1.15)"/>
+  <use xlink:href="#tulipP" href="#tulipP" transform="translate(530,602) scale(1.25)"/>
+  <use xlink:href="#daisy" href="#daisy" transform="translate(595,592) scale(1.1)"/>
+  <use xlink:href="#tulipY" href="#tulipY" transform="translate(845,598) scale(1.15)"/>
+  <use xlink:href="#tulipR" href="#tulipR" transform="translate(805,606) scale(1.1)"/>
+
+  <!-- 蝴蝶 -->
+  <g transform="translate(385,505) rotate(-15)">
+    <ellipse cx="-7" cy="-4" rx="8" ry="11" fill="#ffb26b" opacity="0.95" transform="rotate(-30 -7 -4)"/>
+    <ellipse cx="7" cy="-4" rx="8" ry="11" fill="#ff8f5a" opacity="0.95" transform="rotate(30 7 -4)"/>
+    <ellipse cx="-6" cy="6" rx="5" ry="7" fill="#ffcfa3" transform="rotate(-25 -6 6)"/>
+    <ellipse cx="6" cy="6" rx="5" ry="7" fill="#ffb98a" transform="rotate(25 6 6)"/>
+    <line x1="0" y1="-8" x2="0" y2="9" stroke="#7a4a2b" stroke-width="2.4" stroke-linecap="round"/>
+    <path d="M0,-8 C-2,-13 -5,-15 -7,-16 M0,-8 C2,-13 5,-15 7,-16" fill="none" stroke="#7a4a2b" stroke-width="1.2" stroke-linecap="round"/>
+  </g>
+
+  <!-- 题字 -->
+  <text x="450" y="52" text-anchor="middle" font-family="KaiTi, STKaiti, 'Noto Serif SC', serif" font-size="36" font-weight="bold" fill="#2f5568" letter-spacing="8">面朝大海，春暖花开</text>
+  <text x="600" y="88" text-anchor="end" font-family="KaiTi, STKaiti, 'Noto Serif SC', serif" font-size="16" fill="#5b7c8d" letter-spacing="3">—— 海子</text>
+  <g>
+    <rect x="610" y="64" width="30" height="30" rx="4" fill="#c0392b" opacity="0.9"/>
+    <text x="625" y="87" text-anchor="middle" font-family="KaiTi, STKaiti, serif" font-size="18" fill="#ffffff">春</text>
+  </g>
+</svg>

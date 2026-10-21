@@ -160,6 +160,20 @@ def check_status(target=None):
         # 自动排除所有鼠标扩展端点
         physical_keyboards = [d for d in parsed if not d["is_mouse_macro"]]
     
+    # 去重：同一物理键盘的多个 HID 集合 (MI_00/MI_01) 只计一次，
+    # 并剔除无法解析 VID/PID 的空名幽灵端点（切换器/扩展坞残留句柄）
+    seen_pairs = set()
+    filtered = []
+    for d in physical_keyboards:
+        if not (d["vid"] and d["pid"]):
+            continue
+        pair = (d["vid"], d["pid"])
+        if pair in seen_pairs:
+            continue
+        seen_pairs.add(pair)
+        filtered.append(d)
+    physical_keyboards = filtered
+
     unique_names = list(dict.fromkeys(d["description"] for d in physical_keyboards))
     
     return {
